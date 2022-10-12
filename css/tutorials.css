@@ -1,0 +1,401 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 1s ease-in-out;
+}
+.container{
+    margin: auto;
+    width: 90%;
+}
+.page{
+    min-height: 100vh;
+    background-color: #ccc3;
+    margin-bottom: 50px;
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+.products{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+}
+.products .product{
+    border: 2px solid white;
+    box-shadow: 1px 2px 3px #212121;
+    overflow: hidden;
+    padding: 7px;
+}
+.products .product img{
+    width: 100%;
+    max-width:100%;
+    height: 300px;
+}
+.products .product .price{
+    background-color: #1a237e99;
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+    color: white;
+    padding: 8px 10px;
+    margin-top: 14px;
+    box-shadow: 2px 1px 3px #1a237f;
+
+}
+.products .product input[type="range"]{
+    
+}
+.products .product input[type="range"]:hover,
+.products .product input[type="range"]:focus{
+    outline: none;
+}
+.products .product .calc{
+    background-color: #ffcdd23d;
+    padding: 10px;
+    text-align: center;
+    margin-top: 16px;
+    box-shadow: 0px 0px 1px #1b5e20;
+
+}
+.products .product .calc .amount{
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+    margin-top: 20px;
+}
+.products .product .calc .amount p{
+
+}
+/* end e-commerce */
+
+
+/* start to do list  */
+.todolist{
+margin: 0 50px;
+padding-top: 50px;
+}
+.todolist .head{
+    height: 60px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+.todolist .head input {
+    border: none;
+    width: 60%;
+    margin-right: 5%;
+    padding: 10px;
+    font-size: 20px;
+    color: #0d47a1;
+    height: 60px;
+}
+.todolist .head input:focus{
+    outline: none;
+}
+.todolist .head input:focus{
+    box-shadow: 0px 2px 6px 2px #1a237e;
+}
+@media (max-width="450px") {
+    .todolist .head input{
+        width: 100%;
+    }
+}
+.todolist .head .addtask{
+    color: white;
+    background-color: #01579b;
+    border: 1px solid #3949ab;
+    box-shadow: 0px 2px 6px 2px #1a237e;
+    height: 50px;
+    width: 15%; 
+    margin-right: 3%;
+    font-size: 15px;
+    cursor: pointer;
+}
+.todolist .head .deleteall{
+    cursor: pointer;
+    color: white;
+    width: 15%;
+    font-size: 15px;
+    height: 50px;
+    background-color: #bf360c;
+    border: 1px solid #bf360c;
+    box-shadow: 0px 2px 6px 2px #bf360c;
+}
+.taskbox{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    height: 60px;
+    overflow: hidden;
+}
+.taskbox p{
+    padding: 10px;
+    font-size: 20px;
+    color: #1a237e;
+    display: flex;
+    align-items: center;
+
+}
+.taskbox .delete{
+    text-transform: capitalize;
+    cursor: pointer;
+    color: white;
+    width: 15%;
+    font-size: 15px;
+    height: 50px;
+    background-color: #bf360c;
+    border: 1px solid #bf360c;
+    box-shadow: 0px 2px 6px 2px #bf360c;
+}
+button:disabled{
+    opacity: .2;
+}
+.linethrough{
+    text-decoration: line-through;
+}
+/* end to do list  */
+/* start question-box  */
+.question-box {
+    border: 3px solid #ff00007a;
+    padding: 10px;
+    box-shadow: 5px 5px 5px 2px #ffeb3b;
+    background-image: linear-gradient(to right, #ff000054, transparent);
+    margin-bottom: 30px;
+}
+
+.question-box .question  {
+    color: #9e9e9e;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 21px;
+    cursor: pointer;
+}
+.question-box .answer{
+    background-color: white;
+    padding: 10px;
+    color: #ff6f00;
+    font-size: 25px;
+}
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.slide-fade-enter-active {
+    transition: all 0.3s ease-out;
+  }
+  
+  .slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  
+  .slide-fade-enter-from,
+  .slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  
+
+/* .bounce-enter-active {
+    animation: bounce-in 0.5s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in 0.5s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+   */
+
+/* end question-box  */
+
+/* start form-validation  */
+
+.form-validation {
+
+}
+.form-validation h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 18px;
+    background-image: linear-gradient(to left, #1a237e, #263238,#b71c1c);
+    color: white;
+    font-size: 30px;
+    text-transform: capitalize;
+}
+.validationproblems{
+    background-color: #6e272a47;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 17px;
+}
+.form-validation form {
+    display: grid;
+    gap: 35px;
+    width: 70%;
+    margin: auto;
+}
+.form-validation form .input{
+    position: relative;
+}
+.form-validation form input {
+    border: none;
+    width: 100%;
+    padding: 10px;
+    height: 60px;
+    font-size: 16px;
+    color: #263238;
+}
+.form-validation form .input p {
+    position: absolute;
+    top: 50%;
+    color: #d0bcbd;
+    background-color: #d0bcbd57;
+    padding: 10px;
+    border-radius: 5px;
+    transform: translateY(-50%);
+    right: 20%;
+}
+.form-validation form .input p::after{
+    content: "";
+    position: absolute;
+    border: 16px solid;
+    left: -33px;
+    top: 4px;
+    border-color: transparent #efe8e8 transparent transparent;
+
+}
+.form-validation form input::placeholder,
+textarea::placeholder{
+    color: #01579b;
+    opacity: .5;
+    font-size: 15px;
+}
+textarea{
+    resize: none;
+    outline: none;
+    height: 60px;
+    border: none;
+    padding: 10px;
+}
+.form-validation form input:focus{
+    outline: none;
+}
+.form-validation form button {
+    background-image: linear-gradient(to left, #1a237e, #263238,#b71c1c);
+    color: white;
+    border: none;
+    height: 49px;
+    font-size: 27px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+/* end form-validation  */
+
+/* start tabs  */
+.tabs ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+.tabs ul li{
+    margin-left: 20px;
+    color: #cc6868;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 4s ease;
+}
+.active ,
+.tabs ul li:hover{
+    color: white !important;
+    background-color: #b71c1ca6;
+    border-radius: 3px;
+    box-shadow: 1px 1px 8px #3949ab;
+    text-align: center;
+}
+.subjects div {
+    animation: text 2s 1s 1s infinite backwards forwards ;
+}
+@keyframes text {
+    0%{
+        color: white;
+    }
+    100%{
+        color: #01579b;
+    }
+}
+/* end tabs  */
+/* start slider  */
+.slider .img {
+    width: 90%;
+    margin: auto;
+    position: relative;
+    margin-top: 50px;
+    height: 600px;
+    overflow: hidden;
+}
+.right,
+.left{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #b71c1c;
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.left{
+left: 0;
+}
+.right{
+right: 0%;
+}
+.slider .img img {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    transition:  1s ease-in-out;
+    filter: grayscale(1);
+}
+.slider .img img:hover{
+    filter: none;
+    transform: scale(1.1);
+}
+.slider ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+.slider ul li {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 3px solid #1a237e;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px #607d8b;
+}
+.slider ul li:hover,
+.slider ul li.slide{
+    background-color: #01579b ;
+    border: none ;
+
+}
+/* end slider  */

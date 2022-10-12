@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Tutorials</title>
+    <link rel="stylesheet" href="./fontawesome-free-6.2.0-web/css/all.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css.map" />
+    <link rel="stylesheet" href=".//css/tutorials.css" />
+  </head>
+  <body>
+    <div id="tutorials">
+      <div class="container">
+        <div class="page slider">
+          <div class="img">
+            <img :src="arrayofimages[index]" alt="" />
+            <div class="right">
+              <i
+                v-show="index<arrayofimages.length-1"
+                @click="index++"
+                class="fa-solid fa-arrow-right"
+              ></i>
+            </div>
+            <div class="left">
+              <i
+                v-show="index>0"
+                @click="index--"
+                class="fa-solid fa-arrow-left"
+              ></i>
+            </div>
+          </div>
+          <ul>
+            <li @click="index=0" :class="[index===0?'slide':'']"></li>
+            <li @click="index=1" :class="[index===1?'slide':'']"></li>
+            <li @click="index=2" :class="[index===2?'slide':'']"></li>
+            <li @click="index=3" :class="[index===3?'slide':'']"></li>
+            <li @click="index=4" :class="[index===4?'slide':'']"></li>
+            <li @click="index=5" :class="[index===5?'slide':'']"></li>
+            <li @click="index=6" :class="[index===6?'slide':'']"></li>
+            <li @click="index=7" :class="[index===7?'slide':'']"></li>
+            <li @click="index=8" :class="[index===8?'slide':'']"></li>
+          </ul>
+        </div>
+        <div class="page">
+          <div class="products">
+            <div class="product">
+              <img :src="arrayofimages[0]" alt="" />
+              <div class="price">price: $ {{price}}</div>
+              <div class="calc">
+                <input
+                  type="range"
+                  min="1"
+                  max="50"
+                  step="1"
+                  v-model="amount"
+                />
+
+                <div class="amount">
+                  <p>amount: <span>{{amount}}</span></p>
+                  <p class="totalprice">
+                    total price : $ <span>{{totalprice()}}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <img :src="arrayofimages[1]" alt="" />
+              <div class="price">price: $ {{price}}</div>
+              <div class="calc">
+                <input
+                  type="range"
+                  min="1"
+                  max="50"
+                  step="1"
+                  v-model="amount"
+                />
+                <div class="amount">
+                  <p>amount: <span>{{amount}}</span></p>
+                  <p class="totalprice">
+                    total price : $ <span>{{totalprice()}}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <img :src="arrayofimages[2]" alt="" />
+              <div class="price">price: $ {{price}}</div>
+              <div class="calc">
+                <input
+                  type="range"
+                  min="1"
+                  max="50"
+                  step="1"
+                  v-model="amount"
+                />
+                <div class="amount">
+                  <p>amount: <span>{{amount}}</span></p>
+                  <p class="totalprice">
+                    total price : $ <span>{{totalprice()}}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <img :src="arrayofimages[3]" alt="" />
+              <div class="price">price: $ {{price}}</div>
+              <div class="calc">
+                <input
+                  type="range"
+                  min="1"
+                  max="50"
+                  step="1"
+                  v-model="amount"
+                />
+                <div class="amount">
+                  <p>amount: <span>{{amount}}</span></p>
+                  <p class="totalprice">
+                    total price : $ <span>{{totalprice()}}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <img :src="arrayofimages[4]" alt="" />
+              <div class="price">price: $ {{price}}</div>
+              <div class="calc">
+                <input
+                  type="range"
+                  min="1"
+                  max="50"
+                  step="1"
+                  v-model="amount"
+                />
+
+                <div class="amount">
+                  <p>amount: <span>{{amount}}</span></p>
+                  <p class="totalprice">
+                    total price : $ <span>{{totalprice()}}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <img :src="arrayofimages[5]" alt="" />
+              <div class="price">price: $ {{price}}</div>
+              <div class="calc">
+                <input
+                  type="range"
+                  min="1"
+                  max="50"
+                  step="1"
+                  v-model="amount"
+                />
+
+                <div class="amount">
+                  <p>amount: <span>{{amount}}</span></p>
+                  <p class="totalprice">
+                    total price : $ <span>{{totalprice()}}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page">
+          <div class="todolist">
+            <div class="head">
+              <input
+                type="text"
+                placeholder="write your task"
+                v-model="inputtask"
+              />
+              <button
+                class="addtask"
+                @click="addtasktoarray"
+                :disabled="!inputtask"
+              >
+                Add Task
+              </button>
+              <button
+                class="deleteall"
+                @click="arrayoftasks=[]"
+                :disabled="arrayoftasks.length<2"
+              >
+                Delete All
+              </button>
+            </div>
+            <div class="taskbox" v-for=" (task,index) in arrayoftasks">
+              <p>{{task}}</p>
+              <button class="delete" @click="deletetask(index)">delete</button>
+            </div>
+          </div>
+        </div>
+        <div class="page">
+          <div class="question-box" v-for="question in questions">
+            <div
+              class="question"
+              @click="question.showanswer = !question.showanswer"
+            >
+              {{question.title}}
+            </div>
+            <transition name="slide-fade">
+              <div class="answer" v-if="question.showanswer">
+                {{question.answer}}
+              </div>
+            </transition>
+          </div>
+        </div>
+        <div class="page">
+          <div class="form-validation">
+            <h2>form validation</h2>
+            <div class="validationproblems" v-for="error in arrayoferrors">
+              <p>{{error}}</p>
+            </div>
+            <form action="" method="get">
+              <div class="input">
+                <input
+                  type="text"
+                  placeholder="put your first name"
+                  v-model="fname"
+                />
+                <p v-if="fnameerror">{{fnameerror}}</p>
+              </div>
+              <div class="input">
+                <input
+                  type="text"
+                  placeholder="put your last name"
+                  v-model="lname"
+                />
+                <p v-if="lnameerror">{{lnameerror}}</p>
+              </div>
+              <input type="month" placeholder="put your age" v-model="age" />
+              <input
+                type="email"
+                placeholder="put your e-mail"
+                v-model="email"
+              />
+              <input
+                type="password"
+                placeholder="put your password"
+                v-model="password"
+              />
+              <input
+                type="number"
+                placeholder="put your phone number"
+                v-model="number"
+              />
+              <textarea
+                name="textarea"
+                placeholder="put your message"
+                v-model="message"
+              ></textarea>
+              <button @click="formvalidation">submit</button>
+            </form>
+          </div>
+        </div>
+        <div class="page">
+          <div class="tabs">
+            <div class="tabbar">
+              <ul class="nav">
+                <li @click="sub=1" :class="[sub===1?'active':'']">
+                  subject one
+                </li>
+                <li @click="sub=2" :class="[sub===2?'active':'']">
+                  subject two
+                </li>
+                <li @click="sub=3" :class="[sub===3?'active':'']">
+                  subject three
+                </li>
+                <li @click="sub=4" :class="[sub===4?'active':'']">
+                  subject four
+                </li>
+                <li @click="sub=5" :class="[sub===5?'active':'']">
+                  subject five
+                </li>
+                <li @click="sub=6" :class="[sub===6?'active':'']">
+                  subject six
+                </li>
+              </ul>
+            </div>
+            <div class="subjects">
+              <div v-if="sub===1" class="sub-one">
+                1111111111111111111111Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Id voluptates ipsa amet consequuntur earum
+                excepturi quis quaerat. Molestiae blanditiis illum dolor a,
+                accusantium corrupti, laudantium vel temporibus possimus optio
+                veritatis!
+              </div>
+              <div v-if="sub===2">
+                222222222222222222Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Id voluptates ipsa amet consequuntur earum
+                excepturi quis quaerat. Molestiae blanditiis illum dolor a,
+                accusantium corrupti, laudantium vel temporibus possimus optio
+                veritatis!
+              </div>
+              <div v-if="sub===3" class="sub-three">
+                3333333333333333333Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Id voluptates ipsa amet consequuntur earum
+                excepturi quis quaerat. Molestiae blanditiis illum dolor a,
+                accusantium corrupti, laudantium vel temporibus possimus optio
+                veritatis!
+              </div>
+              <div v-if="sub===4" class="sub-four">
+                444444444444444444Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Id voluptates ipsa amet consequuntur earum
+                excepturi quis quaerat. Molestiae blanditiis illum dolor a,
+                accusantium corrupti, laudantium vel temporibus possimus optio
+                veritatis!
+              </div>
+              <div v-if="sub===5" class="sub-five">
+                55555555555555555555555Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Id voluptates ipsa amet consequuntur earum
+                excepturi quis quaerat. Molestiae blanditiis illum dolor a,
+                accusantium corrupti, laudantium vel temporibus possimus optio
+                veritatis!
+              </div>
+              <div v-if="sub===6" class="sub-six">
+                6666666666666666666666Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Id voluptates ipsa amet consequuntur earum
+                excepturi quis quaerat. Molestiae blanditiis illum dolor a,
+                accusantium corrupti, laudantium vel temporibus possimus optio
+                veritatis!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/vue (1).js"></script>
+    <script>
+      var app = new Vue({
+        el: "#tutorials",
+        data: {
+          product: {
+            productone: {
+              title: "product-one",
+              img: 'img src="./photos/pexels-athena-2582937.jpg" alt="" />',
+              price: 10,
+            },
+            productone: {
+              title: "product-one",
+              img: 'img src="/photos/pexels-dan-cristian-pădureț-1476321.jpg" alt="" />',
+              price: 10,
+            },
+            productone: {
+              title: "product-one",
+              img: 'img src="./photos/pexels-athena-2582937.jpg" alt="" />',
+              price: 10,
+            },
+          },
+          index: 0,
+          sub: 1,
+          amount: 1,
+          price: 10,
+          arrayoftasks: [],
+          inputtask: null,
+          questions: {
+            questionone: {
+              showanswer: false,
+              title: "what is your name ?",
+              answer: "bla bla bla bla ",
+            },
+            questiontwo: {
+              showanswer: false,
+              title: "what is your name ?",
+              answer: "bla bla bla bla ",
+            },
+            questionthree: {
+              showanswer: false,
+              title: "what is your name ?",
+              answer: "bla bla bla bla ",
+            },
+            questionfour: {
+              showanswer: false,
+              title: "what is your name ?",
+              answer: "bla bla bla bla ",
+            },
+            questionfive: {
+              showanswer: false,
+              title: "what is your name ?",
+              answer: "bla bla bla bla ",
+            },
+            questionsix: {
+              showanswer: false,
+              title: "what is your name ?",
+              answer: "bla bla bla bla ",
+            },
+            questionseven: {
+              showanswer: false,
+              title: "what is your name ?",
+              answer: "bla bla bla bla ",
+            },
+          },
+          fname: null,
+          fnameerror: null,
+          email: null,
+          lname: null,
+          lnameerror: null,
+          number: null,
+          age: null,
+          password: null,
+          message: null,
+          arrayoferrors: [],
+          arrayofimages: [
+            "./photos/pexels-athena-2582937.jpg",
+            "./photos/pexels-dan-cristian-pădureț-1476321.jpg",
+            "./photos/pexels-designecologist-1779487.jpg",
+            "./photos/pexels-drew-williams-3568520.jpg",
+            "./photos/pexels-harsch-shivam-2007647.jpg",
+            "./photos/pexels-ola-dapo-3345882.jpg",
+            "./photos/pexels-sharad-kachhi-3937174.jpg",
+            "./photos/pexels-thisisengineering-3861958.jpg",
+            "./photos/pexels-thisisengineering-3861969.jpg",
+          ],
+        },
+        methods: {
+          totalprice: function () {
+            return this.amount * this.price;
+          },
+          addtasktoarray: function () {
+            this.arrayoftasks.push(this.inputtask);
+            this.inputtask = null;
+          },
+          deletetask: function (index) {
+            this.arrayoftasks.splice(index, 1);
+          },
+          formvalidation: function (e) {
+            // empty the array of errors
+            this.arrayoferrors = [];
+            this.fnameerror = null;
+            //[1]check name
+            if (!this.fname) {
+              this.arrayoferrors.push("user first name cant be empty");
+              this.fnameerror = "user first name cant be empty";
+            }
+            if (!this.lname) {
+              this.arrayoferrors.push("user last name cant be empty");
+              this.lnameerror = "user first name cant be empty";
+            }
+            //[1]check name
+            if (this.fname && !/^[A-Z]{1}[a-z]{5,10}/gi.test(this.fname)) {
+              this.arrayoferrors.push(
+                "user first name reqex must be /^[A-Z]{1}[a-z]{5,10}/  "
+              );
+            }
+            if (this.fname && !/^[A-Z]{1}[a-z]{5,10}/gi.test(this.fname)) {
+              this.arrayoferrors.push(
+                "user first name reqex must be /^[A-Z]{1}[a-z]{5,10}/  "
+              );
+            }
+            if (this.arrayoferrors.length === 0) {
+              return true;
+            }
+
+            e.preventDefault();
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
